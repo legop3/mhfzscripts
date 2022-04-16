@@ -7,31 +7,20 @@ const directoryPath = path.join(__dirname, 'sheetfolder');
 
 
 
-// console.log(readout)
-// readout.forEach(element => {
-
-//     element.data.forEach(element => {
-//         // console.log(element[0] + ' ' + element[1])
 
 
 
-
-//     });
-
-// });
-
-
-// fs.readdir(directoryPath, function (err, files) {
-//     //handling error
-//     if (err) {
-//         return console.log('Unable to scan directory: ' + err);
-//     } 
-//     //listing all files using forEach
-//     files.forEach(function (file) {
-//         // Do whatever you want to do with the file
-//         console.log(file); 
-//     });
-// });
+fs.readdir(directoryPath, function (err, files) {
+    //handling error
+    if (err) {
+        return console.log('Unable to scan directory: ' + err);
+    } 
+    //listing all files using forEach
+    files.forEach(function (file) {
+        // Do whatever you want to do with the file
+        console.log(file); 
+    });
+});
 
 const getAllFiles = function(dirPath, arrayOfFiles) {
     files = fs.readdirSync(dirPath)
@@ -54,30 +43,52 @@ const getAllFiles = function(dirPath, arrayOfFiles) {
 
 console.log(getAllFiles("sheetfolder"))
 
+
+
 getAllFiles("sheetfolder").forEach(element => {
 const file = element
-
+var newfile = null
     const sheetopen = xlsx.parse(element)
     sheetopen.forEach(element => {
 
             element.data.forEach(element => {
 
-                console.log(element[0] + ' ' + element[1])
-                console.log(file)
-        
-        
-        
-        
+                // console.log(element[0])
+                // console.log(file)
+                const japname = element[0]
+                const engname = element[1]
+
+
+
+                readout.forEach(element => {
+
+                  element.data.forEach(element => {
+                      // console.log(element[1])
+
+                        if(element[1] == japname){
+                          // console.log('we')
+                          console.log(japname + ' '+engname+ ' ' + element[0])
+                          // newfile = 'processed_' + file.split('\\')[file.split('\\').length - 1]
+                          // console.log('be')
+                          
+
+
+
+
+                        }
+
+                  });
+              
+              });
+
             });
         
         });
 //////////////////
-
-
-
-
-
+console.log('file')
+// console.log(newfile)
+const tablemaker = null
+console.log('^^^^ processed_' + file.split('\\')[file.split('\\').length - 1])
 
 
 });
-
