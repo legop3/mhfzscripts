@@ -44,9 +44,10 @@ const getAllFiles = function(dirPath, arrayOfFiles) {
 console.log(getAllFiles("sheetfolder"))
 
 
-
+const filepath = "output/"
 getAllFiles("sheetfolder").forEach(element => {
 const file = element
+var tablemaker = []
 var newfile = null
     const sheetopen = xlsx.parse(element)
     sheetopen.forEach(element => {
@@ -67,11 +68,11 @@ var newfile = null
 
                         if(element[1] == japname){
                           // console.log('we')
-                          console.log(japname + ' '+engname+ ' ' + element[0])
+                          // console.log(japname + ' '+engname+ ' ' + element[0])
                           // newfile = 'processed_' + file.split('\\')[file.split('\\').length - 1]
                           // console.log('be')
                           
-
+                          tablemaker.push([japname, engname,element[0]])
 
 
 
@@ -85,10 +86,17 @@ var newfile = null
         
         });
 //////////////////
-console.log('file')
+// console.log('file')
 // console.log(newfile)
-const tablemaker = null
-console.log('^^^^ processed_' + file.split('\\')[file.split('\\').length - 1])
+console.log(tablemaker)
+console.log(file.split('\\')[file.split('\\').length - 1])
+var filename = file.split('\\')[file.split('\\').length - 1]
+var buffer = xlsx.build([{name: filename, data: tablemaker}]); // Returns a buffer
+
+
+
+
+tablemaker = null
 
 
 });
