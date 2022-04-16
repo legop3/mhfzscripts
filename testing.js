@@ -44,7 +44,6 @@ const getAllFiles = function(dirPath, arrayOfFiles) {
 console.log(getAllFiles("sheetfolder"))
 
 
-const filepath = "output/"
 getAllFiles("sheetfolder").forEach(element => {
 const file = element
 var tablemaker = []
@@ -90,11 +89,10 @@ var newfile = null
 // console.log(newfile)
 console.log(tablemaker)
 console.log(file.split('\\')[file.split('\\').length - 1])
+var filepath = 'output\\' + file.split('\\')[file.split('\\').length - 1]
 var filename = file.split('\\')[file.split('\\').length - 1]
 var buffer = xlsx.build([{name: filename, data: tablemaker}]); // Returns a buffer
-
-
-
+fs.writeFileSync(filepath, buffer)
 
 tablemaker = null
 
