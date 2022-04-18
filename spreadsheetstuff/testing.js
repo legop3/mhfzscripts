@@ -94,8 +94,10 @@ var filename = file.split('\\')[file.split('\\').length - 1]
 console.log(filename)
 var buffer = xlsx.build([{name: filename, data: tablemaker}]); // Returns a buffer
 fs.writeFileSync(filepath, buffer)
-
 tablemaker = null
 
 
 });
+
+
+//this does not seem to work on linux because of the length of the file path. it was programmed and is functional on windows 10 though.
