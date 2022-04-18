@@ -91,6 +91,7 @@ console.log(tablemaker)
 console.log(file.split('\\')[file.split('\\').length - 1])
 var filepath = 'output\\' + file.split('\\')[file.split('\\').length - 1]
 var filename = file.split('\\')[file.split('\\').length - 1]
+console.log(filename)
 var buffer = xlsx.build([{name: filename, data: tablemaker}]); // Returns a buffer
 fs.writeFileSync(filepath, buffer)
 
