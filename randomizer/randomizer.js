@@ -52,7 +52,8 @@ sheetopen.forEach(element => {
     // })
 
     for(var i = 0; i < 9; i++){
-        console.log(element.data[Math.floor(Math.random()*element.data.length)])
+        console.log(element.data[Math.floor(Math.random()*element.data.length)][2])
+        
     }
 
 
@@ -63,22 +64,5 @@ sheetopen.forEach(element => {
 })
 
   
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
